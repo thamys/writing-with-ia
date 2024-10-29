@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import "@css/globals.css";
-import AntDesignProvider from "@/infra/AntDesignProvider";
 import Head from "next/head";
+import { AntdRegistry } from "@ant-design/nextjs-registry";
+import ThemeProvider from "@/infra/ThemeProvider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,7 +20,9 @@ export default function RootLayout({
         <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
       </Head>
       <body>
-        <AntDesignProvider>{children}</AntDesignProvider>
+        <AntdRegistry>
+          <ThemeProvider>{children}</ThemeProvider>
+        </AntdRegistry>
       </body>
     </html>
   );
