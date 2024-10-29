@@ -6,9 +6,9 @@ const seedTheme: ThemeConfig = {
     // Seed Token
     colorPrimary: "#FADA58",
     colorLink: "#FADA58",
-    borderRadius: 2,
+    borderRadius: 4,
     colorText: "#1E1E1E",
-  },
+  }
 };
 
 export const darkTheme: ThemeConfig = {

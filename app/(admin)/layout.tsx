@@ -6,10 +6,6 @@ import Image from "next/image";
 import useThemeTokens from "@/services/hooks/useThemeTokens";
 import Link from "next/link";
 
-const items = new Array(3).fill(null).map((_, index) => ({
-  key: String(index + 1),
-  label: `nav ${index + 1}`,
-}));
 
 const UserLayout: React.FC<PropsWithChildren> = ({ children }) => {
   const { algorithm, colorBgBase, colorBgElevated } = useThemeTokens();
