@@ -1,6 +1,6 @@
-"use client";
+'use client';
 import React, { PropsWithChildren } from "react";
-import { Button, Flex, Layout, Menu, Typography } from "antd";
+import { Button, Flex, Layout, Typography } from "antd";
 import { Content, Footer, Header } from "antd/es/layout/layout";
 import Image from "next/image";
 import useThemeTokens from "@/services/hooks/useThemeTokens";

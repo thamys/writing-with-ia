@@ -1,13 +1,10 @@
 "use client";
-import useThemeTokens from "@/services/hooks/useThemeTokens";
 import { Layout, Typography } from "antd";
 import { Content } from "antd/es/layout/layout";
 import Sider from "antd/es/layout/Sider";
 import React, { PropsWithChildren } from "react";
 
 const AuthTemplate: React.FC<PropsWithChildren> = ({ children }) => {
-  const { colorPrimary } = useThemeTokens();
-
   return (
     <Layout className="flex !flex-row !justify-stretch !items-stretch h-full">
       <Content>
@@ -16,9 +13,8 @@ const AuthTemplate: React.FC<PropsWithChildren> = ({ children }) => {
         </div>
       </Content>
       <Sider
-        width={500}
+        width={600}
         style={{
-          backgroundColor: colorPrimary,
           backgroundImage: "url('/images/sider-bg.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
