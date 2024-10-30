@@ -4,7 +4,7 @@ import { Layout, Typography } from "antd";
 import { Content, Footer } from "antd/es/layout/layout";
 import useThemeTokens from "@/services/hooks/useThemeTokens";
 import Link from "next/link";
-import PageHeader from "@/ui/Header";
+import PageHeader from "@/ui/PageHeader";
 
 const UserLayout: React.FC<PropsWithChildren> = ({ children }) => {
   const { colorBgBase } = useThemeTokens();

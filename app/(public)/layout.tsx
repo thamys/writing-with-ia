@@ -4,14 +4,14 @@ import { Layout, Typography } from "antd";
 import { Content, Footer } from "antd/es/layout/layout";
 import useThemeTokens from "@/services/hooks/useThemeTokens";
 import Link from "next/link";
-import PageHeader from "@/ui/Header";
+import PageHeader from "@/ui/PageHeader";
 
 const UserLayout: React.FC<PropsWithChildren> = ({ children }) => {
   const { colorBgBase } = useThemeTokens();
   return (
-    <Layout className="h-full !min-h-screen">
+    <Layout className="h-full !min-h-screen !w-full">
       <PageHeader />
-      <Content className="flex flex-col justify-center">{children}</Content>
+      <Content className="flex flex-grow flex-col justify-center">{children}</Content>
       <Footer
         className="text-center"
         style={{

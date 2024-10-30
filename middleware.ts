@@ -1,5 +1,3 @@
-import { authenticatedOnly, publicOnly } from "./constants/roles";
-
 export { default } from "next-auth/middleware";
 
-export const config = { matcher: [...authenticatedOnly, ...publicOnly] };
+export const config = { matcher: ["/write"] };
