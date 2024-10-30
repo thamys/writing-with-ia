@@ -1,20 +1,12 @@
 "use client";
 import React from "react";
 import { Button, Flex, Typography } from "antd";
-import Link from "next/link";
-import { getAuthProviders } from "./action";
-import { ClientSafeProvider, LiteralUnion } from "next-auth/react";
-import { BuiltInProviderType } from "next-auth/providers/index";
+import { signIn, useSession } from "next-auth/react";
+import GoogleIcon from "@images/google.svg";
+import GithubIcon from "@images/github.svg";
 
 export default function Page() {
-  const [providers, setProviders] = React.useState<Record<
-    LiteralUnion<BuiltInProviderType, string>,
-    ClientSafeProvider
-  > | null>(null);
-
-  React.useEffect(() => {
-    getAuthProviders().then((res) => setProviders(res));
-  }, []);
+  const { data: session } = useSession();
 
   return (
     <>
@@ -27,16 +19,31 @@ export default function Page() {
           Sign in with your social account
         </Typography.Text>
       </div>
+      <Typography.Text className="text-center">
+        {session?.user?.email}
+      </Typography.Text>
       <Flex gap={16} className="justify-center">
-        {providers &&
-          Object.values(providers).map((provider) => (
-            <Link key={provider.id} href={provider.signinUrl}>
-              <Button type="primary" className="w-32">
-                {provider.name}
-              </Button>
-            </Link>
-          ))}
+        <Button
+          type="default"
+          size="large"
+          className="!p-4 !h-12"
+          onClick={() => signIn("google")}
+        >
+          <GoogleIcon className="!w-auto !h-10 mr-2" />
+          Entrar usando Google
+        </Button>
+        <Button
+          type="default"
+          size="large"
+          className="!p-4 !h-12"
+          onClick={() => signIn("github")}
+        >
+          <GithubIcon className="!w-auto !h-6 mr-2" />
+          Entrar usando Github
+        </Button>
       </Flex>
     </>
   );
 }
+
+//http://localhost:3000/api/auth/callback/google flowName=GeneralOAuthFlow
