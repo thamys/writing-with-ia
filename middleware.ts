@@ -1,5 +1,5 @@
-import { authenticatedOnly } from "./constants/roles";
+import { authenticatedOnly, publicOnly } from "./constants/roles";
 
 export { default } from "next-auth/middleware";
 
-export const config = { matcher: authenticatedOnly };
+export const config = { matcher: [...authenticatedOnly, ...publicOnly] };
